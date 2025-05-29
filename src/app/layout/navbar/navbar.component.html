@@ -19,6 +19,9 @@
       <li *ngIf="isSignedIn" class="nav-item">
         <a class="nav-link" routerLink="/peticion/mispeticiones">Mis Peticiones</a>
       </li>
+      <li *ngIf="isSignedIn" class="nav-item">
+        <a class="nav-link" routerLink="/peticiones/firmadas">Peticiones Firmadas</a>
+      </li>
       <!-- Solo visible cuando esté logueado -->
       <li *ngIf="isSignedIn" class="nav-item">
         <a class="nav-link" routerLink="/peticion/create">Crear Petición</a>
@@ -26,6 +29,7 @@
       <li *ngIf="isSignedIn" class="nav-item">
         <a class="nav-link" (click)="signOut()">Logout</a>
       </li>
+
     </ul>
   </div>
 </nav>

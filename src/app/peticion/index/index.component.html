@@ -20,12 +20,16 @@
       <td>{{ pet.descripcion }}</td>
       <td>
         <!-- Botón para ver la petición siempre visible -->
+         <button *ngIf="currentUser?.role_id === 1" 
+        class="btn btn-secondary btn-sm" 
+        (click)="cambiarEstado(pet)">Cambiar estado</button>
+
         <button class="btn btn-primary btn-sm" [routerLink]="['/peticion', 'view', pet.id]">Ver Petición</button>
         <!-- Botón para firmar la petición -->
-<button *ngIf="pet.user_id !== currentUser?.id" class="btn btn-success btn-sm" (click)="firmar(pet.id!)">Firmar</button>
+        <button class="btn btn-success btn-sm" (click)="firmar(pet.id!, pet)">Firmar</button>
         <!-- Botones de editar y eliminar solo si el usuario es el creador o admin -->
-        <button *ngIf="isOwnerOrAdmin(pet)" class="btn btn-warning btn-sm" (click)="editPeticion(pet.id!)">Editar</button>
-        <button *ngIf="isOwnerOrAdmin(pet)" class="btn btn-danger btn-sm" (click)="deletePeticion(pet.id!)">Eliminar</button>
+        <!-- <button *ngIf="isOwnerOrAdmin(pet)" class="btn btn-warning btn-sm" (click)="editPeticion(pet.id!)">Editar</button>
+        <button *ngIf="isOwnerOrAdmin(pet)" class="btn btn-danger btn-sm" (click)="deletePeticion(pet.id!)">Eliminar</button> -->
       </td>
       </tr>
     </tbody>

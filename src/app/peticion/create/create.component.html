@@ -20,7 +20,7 @@
   
     <div class="form-group">
       <label>Imagen</label>
-      <input type="file" class="form-control" (change)="onFileChange($event)">
+      <input type="file" class="form-control" (change)="onFileChange($event)" multiple>
     </div>
     <div *ngIf="errors" class="alert alert-danger mt-3">
       {{ errors | json }}

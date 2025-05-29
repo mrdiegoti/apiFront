@@ -28,4 +28,21 @@ export class AuthService {
   profileUser(): Observable<any> {
     return this.http.get(`${this.baseUrl}/me`);
   }
+
+  // ✅ Guardar usuario en localStorage
+  setCurrentUser(user: any): void {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  // ✅ Obtener usuario desde localStorage
+  getCurrentUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  // ✅ Limpiar datos al cerrar sesión
+  clearSession(): void {
+    localStorage.removeItem('user');
+  }
 }
+

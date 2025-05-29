@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Peticiones Firmadas</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Imagen</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pet of peticionesFirmadas">
+        <td>{{ pet.id }}</td>
+        <td>
+          <img *ngIf="pet.imagen" [src]="baseUrl + '/storage/' + pet.imagen" alt="Imagen de la petición" style="max-width: 100px;">
+        </td>
+        <td>{{ pet.titulo }}</td>
+        <td>{{ pet.descripcion }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/peticion', 'view', pet.id]">Ver Petición</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

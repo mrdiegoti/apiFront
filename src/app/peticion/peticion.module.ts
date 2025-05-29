@@ -7,6 +7,7 @@ import { ViewComponent } from './view/view.component';
 import { IndexComponent } from './index/index.component';
 import { MisPeticionesComponent } from './mispeticiones/mispeticiones.component';  // Usa el mismo nombre exportado
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FirmadasComponent } from './firmadas/firmadas.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EditComponent,
     ViewComponent,
     IndexComponent,
-    MisPeticionesComponent
+    MisPeticionesComponent,
+    FirmadasComponent
   ],
   imports: [
     CommonModule,      
