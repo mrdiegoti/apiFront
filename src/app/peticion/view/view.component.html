@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Detalles de la Petición
+    </div>
+    <div class="card-body" *ngIf="peticion">
+      <p><strong>Título:</strong> {{ peticion.titulo }}</p>
+      <p><strong>Descripción:</strong> {{ peticion.descripcion }}</p>
+      <p><strong>Destinatario:</strong> {{ peticion.destinatario }}</p>
+      <p><strong>Categoría:</strong> {{ peticion.categoria_id }}</p>
+
+      <img *ngIf="peticion.imagen" [src]="'http://127.0.0.1:8000/storage/' + peticion.imagen" alt="Imagen de la petición" class="img-fluid mb-3">
+
+      <!-- Botones visibles solo para el dueño o admin -->
+      <button *ngIf="isOwnerOrAdmin()" class="btn btn-warning btn-sm" (click)="editPeticion()">Editar</button>
+      <button *ngIf="isOwnerOrAdmin()" class="btn btn-danger btn-sm" (click)="deletePeticion()">Borrar</button>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error | json }}
+    </div>
+  </div>
+</div>
