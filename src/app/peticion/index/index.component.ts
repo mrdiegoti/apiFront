@@ -60,24 +60,15 @@ export class IndexComponent implements OnInit {
   }
 
   firmar(id: number, peticion: Peticion): void {
-    // Verificar si el usuario es el creador
-    if (peticion.user_id === this.currentUser?.id) {
-      alert('El creador no puede firmar la petición');
-      return;
-    }
-
-    // Verificar si el usuario ya ha firmado la petición
-    if (peticion.firmantes && peticion.firmantes.some((f: any) => f.user_id === this.currentUser?.id)) {
-      alert('No puedes volver a firmar la petición');
-      return;
-    }
-
     this.peticionService.firmar(id).subscribe({
       next: (data: any) => {
         console.log('Petición firmada con éxito:', data);
         this.loadPeticiones();
       },
-
+      error: (err) => {
+        console.error('Error al firmar:', err);
+        alert(err.error.message || 'No se pudo firmar');
+      }
     });
   }
 
